@@ -9,8 +9,9 @@ const fillRules: { evenodd: number; nonzero: number } = {
 };
 
 // default fill is black
-const black = colorNames.black;
-const defaultFill = [0, integerColor(black as number)];
+// const black = colorNames.black;
+// const defaultFill = [0, integerColor(black as number)];
+const defaultFill = null;
 
 export default function extractFill(
   props: FillProps,
