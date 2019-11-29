@@ -1,6 +1,6 @@
 import extractBrush from './extractBrush';
 import extractOpacity from './extractOpacity';
-import { colorNames, integerColor } from './extractColor';
+// import { colorNames, integerColor } from './extractColor';
 import { FillProps } from './types';
 
 const fillRules: { evenodd: number; nonzero: number } = {
