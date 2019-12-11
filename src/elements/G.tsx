@@ -24,12 +24,13 @@ export default class G extends Shape<{}> {
   render() {
     const { props } = this;
     const prop = propsAndStyles(props);
+    const groupProps = extractProps(prop, this);
+    if (groupProps.display === 'none') {
+      return null;
+    }
+
     return (
-      <RNSVGGroup
-        ref={this.refMethod}
-        {...extractProps(prop, this)}
-        font={extractFont(prop)}
-      >
+      <RNSVGGroup ref={this.refMethod} {...groupProps} font={extractFont(prop)}>
         {props.children}
       </RNSVGGroup>
     );

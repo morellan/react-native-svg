@@ -49,6 +49,7 @@ export default function extractProps(
     opacity?: NumberProp;
     onLayout?: () => void;
     transform?: number[] | string | TransformProps;
+    display?: string;
   } & TransformProps &
     ResponderProps &
     StrokeProps &
@@ -68,6 +69,7 @@ export default function extractProps(
     markerMid = marker,
     markerEnd = marker,
     transform,
+    display,
   } = props;
   const styleProperties: string[] = [];
   const transformProps = props2transform(props);
@@ -85,6 +87,7 @@ export default function extractProps(
     markerEnd?: string;
     clipPath?: string;
     clipRule?: number;
+    display?: string;
   } = {
     matrix,
     ...transformProps,
@@ -94,6 +97,10 @@ export default function extractProps(
     ...extractFill(props, styleProperties),
     ...extractStroke(props, styleProperties),
   };
+
+  if (display) {
+    extracted.display = display;
+  }
 
   if (onLayout) {
     extracted.onLayout = onLayout;
